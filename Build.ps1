@@ -141,8 +141,8 @@ exec { & dotnet run --project samples/Vogen.Examples/Vogen.Examples.csproj -c De
 
 WriteStage("Finally, packing the release version into " + $artifacts)
 
-
-exec { & dotnet pack src/Vogen -c Release -o $artifacts --no-build --verbosity $verbosity }
+$version="93.0.20-onit"
+exec { & dotnet pack src/Vogen -c Release -o $artifacts /p:ForceVersion=$version --no-build --verbosity $verbosity }
 
 WriteStage("Done! Package generated at " + $artifacts)
 

@@ -58,11 +58,11 @@
 
   <ItemGroup>
     <None Include="$(OutputPath)\netstandard2.0\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
-    <None Include="$(OutputPath)\netstandard2.0\Vogen.SharedTypes.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="$(OutputPath)\netstandard2.0\Core.Vogen.SharedTypes.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     
-    <None Include="$(OutputPath)\net461\Vogen.SharedTypes.dll" Pack="true" PackagePath="lib\net461" Visible="true" />
-    <None Include="$(OutputPath)\netstandard2.0\Vogen.SharedTypes.dll" Pack="true" PackagePath="lib\netstandard2.0" Visible="true" />
-    <None Include="$(OutputPath)\net7.0\Vogen.SharedTypes.dll" Pack="true" PackagePath="lib\net7.0" Visible="true" />
+    <None Include="$(OutputPath)\net461\Core.Vogen.SharedTypes.dll" Pack="true" PackagePath="lib\net461" Visible="true" />
+    <None Include="$(OutputPath)\netstandard2.0\Core.Vogen.SharedTypes.dll" Pack="true" PackagePath="lib\netstandard2.0" Visible="true" />
+    <None Include="$(OutputPath)\net7.0\Core.Vogen.SharedTypes.dll" Pack="true" PackagePath="lib\net7.0" Visible="true" />
 
   </ItemGroup>
 
@@ -109,7 +109,7 @@
 
   <PropertyGroup>
     <Features>strict</Features>
-    <PackageId>Vogen</PackageId>
+    <PackageId>Core.Vogen</PackageId>
     <Version>93.0.20.0</Version>
     <PackageVersion>93.0.20.0</PackageVersion>
     <PackageProjectUrl></PackageProjectUrl>
@@ -144,6 +144,7 @@
     </Description>
     <RepositoryType>git</RepositoryType>
     <AssemblyVersion>93.0.20.0</AssemblyVersion>
+    <Product>Core.$(AssemblyName)</Product>
 
   </PropertyGroup>
 </Project>
