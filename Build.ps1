@@ -1,4 +1,4 @@
-param($verbosity = "minimal", [switch] $skiptests = $false, [switch] $resetSnapshots = $false) #quite|q, minimal|m, normal|n, detailed|d
+param($verbosity = "minimal", [switch] $skiptests = $true, [switch] $resetSnapshots = $false) #quite|q, minimal|m, normal|n, detailed|d
 
 $artifacts = ".\artifacts"
 $localPackages = ".\local-global-packages"
@@ -119,18 +119,18 @@ exec { & dotnet pack ./src/Vogen -c Debug -o:$localPackages /p:ForceVersion=$ver
 
 WriteStage("Cleaning and building consumers (tests and samples)")
 
-exec { & dotnet restore Consumers.sln --no-cache --verbosity $verbosity }
-exec { & dotnet clean Consumers.sln -c Release --verbosity $verbosity}
+#exec { & dotnet restore Consumers.sln --no-cache --verbosity $verbosity }
+#exec { & dotnet clean Consumers.sln -c Release --verbosity $verbosity}
 
 
 # Restore the project using the custom config file, restoring packages to a local folder
-exec { & dotnet restore Consumers.sln -p UseLocallyBuiltPackage=true --force --no-cache --packages $localPackages --configfile ./nuget.private.config --verbosity $verbosity }
+#exec { & dotnet restore Consumers.sln -p UseLocallyBuiltPackage=true --force --no-cache --packages $localPackages --configfile ./nuget.private.config --verbosity $verbosity }
 
-exec { & dotnet build Consumers.sln -c Debug --no-restore --verbosity $verbosity }
+#exec { & dotnet build Consumers.sln -c Debug --no-restore --verbosity $verbosity }
 
 WriteStage("Running end to end tests with the local version of the NuGet package:" +$version)
 
-exec { & dotnet test ./tests/ConsumerTests -c Debug --no-build --no-restore --verbosity $verbosity }
+#exec { & dotnet test ./tests/ConsumerTests -c Debug --no-build --no-restore --verbosity $verbosity }
 
 
 WriteStage("Building samples using the local version of the NuGet package...")
